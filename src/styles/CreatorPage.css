@@ -1,0 +1,73 @@
+/* src/styles/CreatorPage.css */
+
+.page-wrapper {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  min-height: 100vh;
+  color: white;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.creator-id {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.creator-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00e58c;
+}
+
+.creator-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tab-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #aaa;
+  transition: 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #1a1a1a;
+}
+
+.tab.active {
+  border-bottom: 2px solid #00e58c;
+  color: #00e58c;
+}
+
+.share-icon {
+  font-size: 1.2rem;
+}
+
+.content-section {
+  padding: 2rem;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+}

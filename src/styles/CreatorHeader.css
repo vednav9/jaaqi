@@ -1,0 +1,61 @@
+/* src/styles/CreatorHeader.css */
+
+.creator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #333;
+  color: white;
+}
+
+.creator-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.creator-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00e58c;
+}
+
+.creator-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.creator-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: #292929;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #00e58c;
+  color: #121212;
+}
+
+.tab-button:hover {
+  background-color: #00c278;
+}
+
+.send-icon {
+  font-size: 1.2rem;
+}

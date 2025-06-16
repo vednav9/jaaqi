@@ -1,13 +1,117 @@
+/* Reset & Base */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: #00e58c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar {
+  width: 380px;
+  height: auto;
+  border-radius: 30px;
+  object-fit: cover;
+  margin-right: 3rem;
+  background-color: #111;
+}
+
+/* Text and Summary */
+.profile-summary {
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-summary h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00e58c;
+}
+
+.profile-summary p {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Q&A section */
+.qa-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  color: #aaa;
+}
+
+.qa-item {
+  background-color: #003b2f;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  max-width: 600px;
+  transition: background 0.3s ease;
+}
+
+.qa-item:hover {
+  background-color: #005a43;
+}
+
+.qa-item .play-icon {
+  width: 16px;
+  height: 16px;
+  background-color: #00e58c;
+  mask: url('https://www.svgrepo.com/show/31247/play-button.svg') no-repeat center;
+  mask-size: cover;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.qa-item span {
+  font-size: 1rem;
+  color: #fff;
+}
+
+/* "View All Answers" button */
+.view-all {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #00e58c;
+}
+
+.view-all .icon {
+  width: 18px;
+  height: 18px;
+  background-color: #00e58c;
+  mask: url('https://www.svgrepo.com/show/331368/document.svg') no-repeat center;
+  mask-size: cover;
+  margin-right: 8px;
 }
