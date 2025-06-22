@@ -1,37 +1,43 @@
 // src/components/CreatorPage.jsx
 import React, { useState } from "react";
-import Navbar from "./Navbar";
 import CreatorHeader from "./CreatorHeader";
 import SummarySection from "./SummarySection";
 import ConversationSection from "./ConversationSection";
 
 export default function CreatorPage() {
-  const [activeTab, setActiveTab] = useState("summary"); // Tabs: summary or conversation
-  const [selectedQuestion, setSelectedQuestion] = useState(null); // Which question was clicked
+  const [activeTab, setActiveTab] = useState("Summary");
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
 
-  const handleQuestionClick = (question) => {
-    setSelectedQuestion(question);
-    setActiveTab("conversation"); // Switch to conversation tab when a question is selected
+  const creator = {
+    name: "Pierre Gasly",
+    image: "/creator.jpg", // Ensure this image exists in the public folder
   };
 
   return (
-    <div className="creator-page">
-      <Navbar />
-
+    <div>
       <CreatorHeader
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        creator={creator}
       />
 
-      {activeTab === "summary" && (
-        <SummarySection onQuestionClick={handleQuestionClick} />
+      {activeTab === "Summary" && (
+        <SummarySection
+          onQuestionClick={(q) => {
+            setSelectedQuestion(q);
+            setActiveTab("Conversation");
+          }}
+        />
       )}
 
-      {activeTab === "conversation" && (
-        <ConversationSection
-          selectedQuestion={selectedQuestion}
-          onQuestionClick={setSelectedQuestion}
-        />
+      {activeTab === "Conversation" && (
+        <ConversationSection selectedQuestion={selectedQuestion} />
+      )}
+
+      {activeTab === "Transcripts" && (
+        <div style={{ padding: "2rem", color: "white" }}>
+          Transcripts coming soon...
+        </div>
       )}
     </div>
   );
