@@ -127,3 +127,72 @@
   font-size: 0.8rem;
   opacity: 0.7;
 }
+
+.up-next-box {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  color: white;
+  text-align: left;
+  max-width: 600px;
+  width: 90%;
+  z-index: 10;
+}
+
+.up-next-label {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 0.2rem;
+}
+
+.up-next-question {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.up-next-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.up-next-countdown {
+  font-size: 0.9rem;
+  min-width: 40px;
+}
+
+.up-next-progress-container {
+  flex: 1;
+  background-color: #222;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 6px;
+  position: relative;
+}
+
+.up-next-progress-bar {
+  background-color: #ffffff;
+  height: 100%;
+  width: 0%;
+  transition: width 1s linear;
+}
+
+.up-next-cancel-btn {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.up-next-cancel-btn:hover {
+  background-color: #ffffff;
+  color: black;
+}
