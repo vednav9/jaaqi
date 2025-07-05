@@ -6,11 +6,16 @@ import TranscriptSection from "../components/TranscriptSection";
 import CreatorHeader from "../components/CreatorHeader";
 import "../styles/CreatorPage.css";
 import { creators } from "../data/creators";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CreatorPage() {
   const [activeTab, setActiveTab] = useState("Summary");
   const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const creator = creators["41926"];
+  const creator = {
+    name: "Pierre Gasly",
+    image: "/creator.jpg", // Image must be in public folder
+    id: "41926",
+  };
 
   const handleQuestionClick = (q) => {
     setSelectedQuestion(q);
@@ -28,21 +33,35 @@ export default function CreatorPage() {
 
       <div className="content-section">
         {activeTab === "Summary" && (
-          <SummarySection
-            onQuestionClick={handleQuestionClick}
-            selectedId={selectedQuestion?.id}
-            creatorId={creator.id}
-          />
+          <motion.div
+            key="summary"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SummarySection
+              onQuestionClick={handleQuestionClick}
+              selectedId={selectedQuestion?.id}
+              creatorId={creator.id}
+            />
+          </motion.div>
         )}
         {activeTab === "Conversation" && (
-          <ConversationSection
-            selectedQuestion={selectedQuestion}
-            onQuestionClick={handleQuestionClick}
-          />
+          <motion.div
+            key="conversation"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ConversationSection
+              selectedQuestion={selectedQuestion}
+              onQuestionClick={handleQuestionClick}
+            />
+          </motion.div>
         )}
-        {activeTab === "Transcripts" && (
-          <TranscriptSection />
-        )}
+        {activeTab === "Transcripts" && <TranscriptSection />}
 
       </div>
     </div>
