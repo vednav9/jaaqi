@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ConversationSection.css";
 
+// Static categories with questions
 const allQuestions = {
   personal: [
     { id: 1, text: "Who are you, and what do you do?", time: "(00:06)", video: "/video1.mp4" },
@@ -12,36 +13,25 @@ const allQuestions = {
   ],
   content: [
     { id: 6, text: "What kind of content do you create?", time: "(00:15)", video: "/video6.mp4" },
-    { id: 7, text: "What makes your content unique?", time: "(00:19)", video: "/video7.mp4" },
+    { id: 7, text: "What makes your content unique?", time: "(00:19)", video: "/video7.mp4" }
   ],
   mental: [
-    { id: 8, text: "How do you deal with burnout?", time: "(00:22)", video: "/video8.mp4" },
+    { id: 8, text: "How do you deal with burnout?", time: "(00:22)", video: "/video8.mp4" }
   ]
 };
 
 const categoryNames = {
   personal: "Personal",
-  content: "Racing",
-  mental: "Mental health",
+  content: "Content",
+  mental: "Mental Health"
 };
 
 export default function ConversationSection({ selectedQuestion, onQuestionClick }) {
   const [openCategories, setOpenCategories] = useState({
     personal: true,
     content: false,
-    mental: false,
+    mental: false
   });
-
-  useEffect(() => {
-    if (selectedQuestion) {
-      for (const cat in allQuestions) {
-        if (allQuestions[cat].find((q) => q.id === selectedQuestion.id)) {
-          setOpenCategories((prev) => ({ ...prev, [cat]: true }));
-          break;
-        }
-      }
-    }
-  }, [selectedQuestion]);
 
   const toggleCategory = (cat) => {
     setOpenCategories((prev) => ({ ...prev, [cat]: !prev[cat] }));
@@ -57,7 +47,7 @@ export default function ConversationSection({ selectedQuestion, onQuestionClick 
           muted
           controls
           className="conversation-video"
-        ></video>
+        />
       </div>
 
       <div className="conversation-questions-section">
@@ -66,8 +56,12 @@ export default function ConversationSection({ selectedQuestion, onQuestionClick 
             <div className="conversation-category-header" onClick={() => toggleCategory(cat)}>
               <span
                 className="triangle-icon"
-                style={{ transform: openCategories[cat] ? "rotate(90deg)" : "rotate(0deg)" }}
-              >▶</span>
+                style={{
+                  transform: openCategories[cat] ? "rotate(90deg)" : "rotate(0deg)"
+                }}
+              >
+                ▶
+              </span>
               <span className="category-title">{categoryNames[cat]}</span>
               <span className="question-count">{allQuestions[cat].length}</span>
             </div>
@@ -87,7 +81,6 @@ export default function ConversationSection({ selectedQuestion, onQuestionClick 
                 ))}
               </div>
             )}
-
             {index < Object.keys(categoryNames).length - 1 && <hr className="category-divider" />}
           </div>
         ))}
